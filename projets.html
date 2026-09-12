@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projets Tech & Recherche - Morgan Theleste">
+  <title>Projets & Recherche | Morgan Theleste</title>
+  
+  <!-- Google Fonts : Lora (Gros textes) & Work Sans (Petit texte / body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,400&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <div id="particles-js"></div>
+
+  <nav class="main-navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-link">Morgan Theleste</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="experience.html">Expérience</a></li>
+        <li><a href="projets.html" class="active">Projets</a></li>
+        <li><a href="formation.html">Formation</a></li>
+        <li><a href="competences.html">Compétences</a></li>
+        <li><a href="engagement.html">Engagement</a></li>
+        <li><a href="references.html">Références</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="site-wrapper">
+    
+    <header class="page-header">
+      <h1 class="page-title">Projets Tech & Recherche</h1>
+      <div class="page-subtitle">Développements logiciels, modélisation et projets d'expérimentation scientifique</div>
+    </header>
+
+    <section class="content-section">
+
+      <!-- PhishML — Détection de phishing par machine learning -->
+      <!-- =========================================================================
+           EMPLACEMENT DU FICHIER PDF À INDIGER / REMPLACER MANUELLEMENT :
+           Attribut data-pdf="assets/pdf/PhishML_Rapport.pdf"
+           Placez votre fichier PDF dans le dossier assets/pdf/ et mettez le bon nom ici !
+           ========================================================================= -->
+
+
+
+      <!-- Sandbox web pour modèles de deep learning en télédétection (KMUTT Bangkok) -->
+      <article class="content-block clickable-card" data-pdf="assets/pdf/rapport_thailand_Theleste.pdf" title="Cliquer pour afficher le rapport PDF">
+        <div class="date-badge-sharp">Mai – Août 2025</div>
+        <h2 class="block-title">Sandbox web pour modèles de deep learning en télédétection</h2>
+        <div class="block-subtitle">Stage de recherche — CERSL, KMUTT (Bangkok, Thaïlande)</div>
+        
+        <div class="tags-inline">
+          <span class="tag-item">Python</span>
+          <span class="tag-item">Streamlit</span>
+          <span class="tag-item">FastAPI</span>
+          <span class="tag-item">PyTorch</span>
+          <span class="tag-item">Docker</span>
+          <span class="tag-item">HPC (SLURM)</span>
+        </div>
+
+        <p class="description">
+          Conception et déploiement d'une plateforme web interactive rendant accessibles, sans expertise en calcul haute performance, des modèles de deep learning dédiés à la restauration d'images de télédétection :
+        </p>
+
+        <ul class="sharp-list">
+          <li><strong>Architecture full-stack et déploiement :</strong> conception du site Streamlit, API dédiée en FastAPI pour l'inférence, déploiement sur machine virtuelle via SSH et conteneurisation Docker.</li>
+          <li><strong>Intégration de deux modèles de deep learning :</strong> HAUNet (super-résolution x4) et DA-Net (débrumisation), connectés au cluster HPC SLURM de l'université pour l'inférence sur GPU NVIDIA L40.</li>
+          <li><strong>Optimisation mémoire et post-traitement :</strong> algorithme de découpage en tuiles (96x96 px) pour éviter les erreurs de saturation mémoire GPU, filtre bilatéral pour corriger les artefacts visuels résiduels.</li>
+        </ul>
+
+        <!-- Image super resolve -->
+        <div class="card-image-container">
+          <img src="assets/images/super_resolve.png" alt="Exemple de Super-Résolution d'image de télédétection (Input Low-Res vs Output Super-Resolved)" class="card-feature-img" loading="lazy" />
+        </div>
+
+        <div class="card-pdf-badge">
+          <i class="fas fa-file-pdf"></i> Cliquer pour consulter le rapport PDF <i class="fas fa-arrow-right"></i>
+        </div>
+
+      </article>
+
+
+      <article class="content-block clickable-card" data-pdf="assets/pdf/rapport_phishing.pdf" title="Cliquer pour afficher le rapport PDF">
+        <div class="date-badge-sharp">septembre 2025 – juin 2026</div>
+        <h2 class="block-title">PhishML — Détection de phishing par machine learning</h2>
+        <div class="block-subtitle">Projet de machine learning appliqué à la cybersécurité</div>
+        
+        <div class="tags-inline">
+          <span class="tag-item">Python</span>
+          <span class="tag-item">Scikit-learn</span>
+          <span class="tag-item">Random forest</span>
+          <span class="tag-item">Explicabilité SHAP</span>
+          <span class="tag-item">Cybersécurité forensique</span>
+        </div>
+
+        <p class="description">
+          Conception d'un pipeline complet de détection de sites de phishing, sur un dataset équilibré de près de 18 000 URLs enrichi de caractéristiques forensiques :
+        </p>
+
+        <ul class="sharp-list">
+          <li><strong>Dataset et preprocessing :</strong> équilibrage 50/50, correction du data leakage, pipeline d'encodage robuste (OrdinalEncoder) conçu pour la mise en production.</li>
+          <li><strong>Modélisation et sélection :</strong> comparaison de trois algorithmes selon la métrique prioritaire FPR — modèle Random Forest retenu, avec un FPR de 0.056% et un F1-score de 0.999 sur le jeu de test.</li>
+          <li><strong>Explicabilité SHAP :</strong> identification des signaux forensiques discriminants (poids réseau, erreurs CORS, en-têtes de sécurité) caractéristiques d'une infrastructure de phishing.</li>
+        </ul>
+
+        <!-- Image Explicabilité SHAP -->
+        <div class="card-image-container">
+          <img src="assets/images/shap_phishing.png" alt="Explicabilité SHAP — Qu'est-ce qui déclenche une alerte Phishing ?" class="card-feature-img" loading="lazy" />
+        </div>
+
+        <div class="card-pdf-badge">
+          <i class="fas fa-file-pdf"></i> Cliquer pour consulter le rapport PDF <i class="fas fa-arrow-right"></i>
+        </div>
+      </article>
+
+      <!-- Jeu Lua LÖVE -->
+      <article class="content-block">
+        <div class="date-badge-sharp">Février 2026 – Aujourd'hui</div>
+        <h2 class="block-title">Développement de jeu de plateau 2D (Lua / Framework LÖVE)</h2>
+        <div class="block-subtitle">Projet d'Architecture Logicielle et Programmation Orientée Événement</div>
+        
+        <div class="tags-inline">
+          <span class="tag-item">Lua</span>
+          <span class="tag-item">LÖVE (Love2D)</span>
+          <span class="tag-item">Game Architecture</span>
+          <span class="tag-item">Logique Métier</span>
+          <span class="tag-item">Algorithmique</span>
+        </div>
+
+        <p class="description">
+          Conception et développement complet d'un jeu de plateau type échecs avec moteur de jeu sur mesure :
+        </p>
+
+        <ul class="sharp-list">
+          <li><strong>Programmation Lua & Framework LÖVE (Love2D) :</strong> Implémentation du moteur du jeu, de la gestion du plateau, du déplacement des pièces et de la détection d'état (échec, mat, pat).</li>
+          <li><strong>Interface Graphique & Interactions :</strong> Création d'une interface utilisateur fluide et réactive avec gestion des clics, sélections et animations d'état.</li>
+        </ul>
+
+        <div class="card-image-container">
+          <img src="assets/images/echec.png" alt="Prototype du jeu en développement" class="card-feature-img" loading="lazy" />
+        </div>
+
+      </article>
+
+      <!-- Projet TIPE -->
+      <article class="content-block clickable-card" data-pdf="assets/pdf/rapport_PPR.pdf" title="Cliquer pour afficher le rapport PDF">
+        <div class="date-badge-sharp">01/2022 – 06/2024</div>
+        <h2 class="block-title">Projet TIPE : Étude des charges à l'interface de l'eau en milieu hydrophobe</h2>
+        <div class="block-subtitle">Projet de Recherche Expérimentale et Modélisation Physique</div>
+        
+        <div class="tags-inline">
+          <span class="tag-item">Physique Expérimentale</span>
+          <span class="tag-item">Haute Tension</span>
+          <span class="tag-item">Électrostatique</span>
+          <span class="tag-item">Analyse de données</span>
+          <span class="tag-item">Rédaction Scientifique</span>
+        </div>
+
+        <p class="description">
+          Travail d'initiative personnelle encadré (TIPE) de deux ans combinant expérimentation physique et analyse de données :
+        </p>
+
+        <ul class="sharp-list">
+          <li><strong>Capture de charges électriques :</strong> Étude théorique et expérimentale du transfert de charges par frottement entre une goutte d'eau et un matériau hydrophobe.</li>
+          <li><strong>Expérimentations Haute Tension :</strong> Conception et montage d'un dispositif expérimental soumettant les gouttelettes d’eau à des champs électriques contrôlés de très haute tension.</li>
+          <li><strong>Résultats & Démonstration :</strong> Démonstration physique du phénomène d'attraction d'une gouttelette d'eau initialement électriquement neutre sous l'effet d'un champ électrique intense.</li>
+        </ul>
+
+        <div class="card-image-container">
+          <img src="assets/images/PPR.png" alt="Démonstration du déplacement d'une goutte dans un champs hautement électrique" class="card-feature-img" loading="lazy" />
+        </div>
+
+        <div class="card-pdf-badge">
+          <i class="fas fa-file-pdf"></i> Cliquer pour consulter le rapport PDF <i class="fas fa-arrow-right"></i>
+        </div>
+
+      </article>
+
+    </section>
+
+    <footer>
+      <p>&copy; Morgan Theleste — Élève-ingénieur IRIS @ SeaTech</p>
+    </footer>
+
+  </div>
+
+  <!-- =========================================================================
+       MODAL POPUP POUR L'AFFICHAGE DU RAPPORT PDF (LECTEUR DIRECT SUR SITE)
+       ========================================================================= -->
+  <div id="pdf-modal" class="pdf-modal-overlay" aria-hidden="true">
+    <div class="pdf-modal-container">
+      <!-- BOUTON DE FERMETURE (PETITE CROIX STRICTEMENT EN HAUT À GAUCHE) -->
+      <button id="pdf-modal-close" class="pdf-modal-close-btn" aria-label="Fermer le document">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="pdf-modal-header">
+        <span id="pdf-modal-title" class="pdf-modal-title">PhishML — Rapport PDF</span>
+        
+        <!-- BARRE D'OUTILS DU LECTEUR PDF INTEGRÉ -->
+        <div class="pdf-toolbar-controls">
+          <button id="pdf-prev" class="pdf-tb-btn" title="Page précédente"><i class="fas fa-chevron-left"></i></button>
+          <span class="pdf-page-indicator">Page <input type="number" id="pdf-page-input" class="pdf-page-input" value="1" min="1" max="1" aria-label="Numéro de page" /> / <span id="pdf-page-count">1</span></span>
+          <button id="pdf-next" class="pdf-tb-btn" title="Page suivante"><i class="fas fa-chevron-right"></i></button>
+          <div class="pdf-tb-divider"></div>
+          <button id="pdf-zoom-out" class="pdf-tb-btn" title="Zoom arrière"><i class="fas fa-search-minus"></i></button>
+          <span id="pdf-zoom-level" class="pdf-zoom-indicator">120%</span>
+          <button id="pdf-zoom-in" class="pdf-tb-btn" title="Zoom avant"><i class="fas fa-search-plus"></i></button>
+        </div>
+
+        <a id="pdf-modal-download" href="assets/pdf/PhishML_Rapport.pdf" download target="_blank" class="pdf-download-link"><i class="fas fa-download"></i> Télécharger</a>
+      </div>
+
+      <div class="pdf-modal-body" id="pdf-modal-body">
+        <div id="pdf-canvas-container" class="pdf-canvas-container">
+          <!-- Les pages du PDF sont générées dynamiquement en canvas HTML5 -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
