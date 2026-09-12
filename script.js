@@ -221,6 +221,11 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentActivePage = 1;
   let isProgrammaticScroll = false;
 
+  // NOUVEAU : état pour le rendu paresseux (lazy rendering)
+  let pageViewports = [];           // dimensions de chaque page à l'échelle courante (calcul léger, sans rendu)
+  let renderedPages = new Set();    // pages déjà dessinées en canvas
+  const RENDER_WINDOW = 1;          // nb de pages à garder prêtes avant/après la page active
+
   if (pdfModal && pdfCloseBtn && pdfCanvasContainer) {
 
     // Configuration du worker PDF.js
@@ -233,6 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
       pdfCanvasContainer.innerHTML = '<div class="pdf-loading-spinner"><i class="fas fa-spinner fa-spin"></i> Chargement du rapport PDF...</div>';
       
       currentActivePage = 1;
+      renderedPages.clear();
       if (pdfPageInputEl) {
         pdfPageInputEl.value = '1';
         pdfPageInputEl.min = '1';
@@ -251,7 +257,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (pdfPageInputEl) pdfPageInputEl.max = currentPdfNumPages;
         if (pdfZoomLevelEl) pdfZoomLevelEl.textContent = Math.round(currentPdfScale * 100) + '%';
 
-        await renderAllPdfPages();
+        // 1. On prépare juste les emplacements (tailles correctes) pour TOUTES les pages,
+        //    sans les dessiner : ça garde un scroll cohérent sans payer le coût du rendu.
+        await buildPageScaffold();
+        // 2. On ne dessine réellement que la page 1 (+ sa fenêtre de pages voisines).
+        await renderPagesAround(1);
 
       } catch (error) {
         console.warn('Rendu PDF.js direct indisponible, bascule sur la balise PDF native:', error);
@@ -262,38 +272,66 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    async function renderAllPdfPages() {
+    // Crée un emplacement (div) à la bonne taille pour chaque page, SANS les rendre.
+    // getViewport() est très léger (pas de dessin), donc ça reste rapide même sur un gros PDF.
+    async function buildPageScaffold() {
       if (!currentPdfDoc || !pdfCanvasContainer) return;
       pdfCanvasContainer.innerHTML = '';
+      pageViewports = [];
 
       for (let pageNum = 1; pageNum <= currentPdfNumPages; pageNum++) {
         const page = await currentPdfDoc.getPage(pageNum);
         const viewport = page.getViewport({ scale: currentPdfScale });
+        pageViewports[pageNum] = viewport;
 
         const pageWrapper = document.createElement('div');
         pageWrapper.className = 'pdf-page-wrapper';
         pageWrapper.id = `pdf-page-${pageNum}`;
+        // On réserve déjà le bon espace : le scroll reste correct avant même le dessin
+        pageWrapper.style.width = `${viewport.width}px`;
+        pageWrapper.style.height = `${viewport.height}px`;
 
-        const canvas = document.createElement('canvas');
-        canvas.className = 'pdf-canvas-page';
-        const context = canvas.getContext('2d');
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
-
-        pageWrapper.appendChild(canvas);
         pdfCanvasContainer.appendChild(pageWrapper);
+      }
+    }
 
-        const renderContext = {
-          canvasContext: context,
-          viewport: viewport
-        };
-        await page.render(renderContext).promise;
+    // Dessine UNE page dans son emplacement, seulement si ce n'est pas déjà fait.
+    async function renderSinglePage(pageNum) {
+      if (pageNum < 1 || pageNum > currentPdfNumPages) return;
+      if (renderedPages.has(pageNum)) return;
+
+      const pageWrapper = document.getElementById(`pdf-page-${pageNum}`);
+      if (!pageWrapper || !currentPdfDoc) return;
+
+      const page = await currentPdfDoc.getPage(pageNum);
+      const viewport = pageViewports[pageNum] || page.getViewport({ scale: currentPdfScale });
+
+      const canvas = document.createElement('canvas');
+      canvas.className = 'pdf-canvas-page';
+      const context = canvas.getContext('2d');
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
+
+      pageWrapper.innerHTML = '';
+      pageWrapper.appendChild(canvas);
+
+      await page.render({ canvasContext: context, viewport }).promise;
+      renderedPages.add(pageNum);
+    }
+
+    // Dessine la page demandée + une petite fenêtre de pages voisines (scroll fluide sans tout charger)
+    async function renderPagesAround(centerPage) {
+      const start = Math.max(1, centerPage - RENDER_WINDOW);
+      const end = Math.min(currentPdfNumPages, centerPage + RENDER_WINDOW);
+      for (let p = start; p <= end; p++) {
+        await renderSinglePage(p);
       }
     }
 
     // Scroll interne propre vers la page ciblée (SANS décaler l'en-tête ni la page globale)
     function scrollToPage(pageNum) {
       if (pageNum < 1 || pageNum > currentPdfNumPages) return;
+      renderPagesAround(pageNum); // s'assure que la page ciblée est bien dessinée
       const targetEl = document.getElementById(`pdf-page-${pageNum}`);
       if (targetEl && pdfCanvasContainer) {
         isProgrammaticScroll = true;
@@ -327,6 +365,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (pdfPageInputEl && document.activeElement !== pdfPageInputEl) {
         pdfPageInputEl.value = currentActivePage;
       }
+
+      // On dessine à la volée la page qui vient d'apparaître (+ ses voisines)
+      renderPagesAround(pageInView);
     });
 
     // Saisie directe de numéro de page
@@ -384,7 +425,11 @@ document.addEventListener('DOMContentLoaded', () => {
         pdfZoomLevelEl.textContent = Math.round(currentPdfScale * 100) + '%';
       }
 
-      await renderAllPdfPages();
+      // Le zoom change la taille de chaque page : on refait les emplacements (léger)
+      // puis on ne redessine que la fenêtre autour de la page conservée.
+      renderedPages.clear();
+      await buildPageScaffold();
+      await renderPagesAround(pageToKeep);
 
       // Repositionnement instantané sur la page conservée
       const targetEl = document.getElementById(`pdf-page-${pageToKeep}`);

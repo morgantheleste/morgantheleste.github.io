@@ -77,8 +77,9 @@ h2, h3, .block-title, .brand-link {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 100%;
-  padding: 10px 0.7vw; /* Cartes presque collées aux bords de l'écran */
+  max-width: 1400px;   /* Empêche le contenu de s'étirer à l'infini sur grand écran */
+  margin: 0 auto;      /* Centre le contenu horizontalement */
+  padding: 10px 24px;
 }
 
 /* BARRE DE NAVIGATION ÉPURÉE & ÉLÉGANTE (POLICE LORA) */
@@ -95,8 +96,9 @@ h2, h3, .block-title, .brand-link {
 
 .nav-container {
   width: 100%;
-  max-width: 100%;
-  padding: 10px 0.7vw; /* Alignement collé aux bords */
+  max-width: 1400px;   /* Aligné avec .site-wrapper : la barre reste pleine largeur, son contenu non */
+  margin: 0 auto;
+  padding: 10px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
