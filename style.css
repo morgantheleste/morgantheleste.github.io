@@ -13,8 +13,8 @@
   --bg-card: rgba(246, 234, 216, 0.85);       /* Fond verre dépoli beige opaque */
   --bg-card-hover: rgba(250, 241, 227, 0.92); /* Fond verre dépoli au survol */
 
-  --font-heading: 'Lora', serif;       /* Police Lora pour les titres */
-  --font-body: 'Work Sans', sans-serif; /* Police Work Sans pour le texte */
+  --font-heading: 'Instrument Serif', serif;  /* Titres : plus distinctif que Lora/Playfair */
+  --font-body: 'IBM Plex Sans', sans-serif;   /* Texte : identité plus technique/ingénieur que Work Sans/Inter */
 }
 
 /* Réinitialisation globale des liens */
@@ -175,6 +175,43 @@ h2, h3, .block-title, .brand-link {
 .nav-links a.active::after {
   width: 100%;
   background-color: var(--espresso-dark);
+}
+
+/* Bouton de Changement de Langue (FR / EN) */
+.lang-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(139, 90, 43, 0.12);
+  border: 1px solid rgba(139, 90, 43, 0.25);
+  color: var(--chocolate-dark);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(30, 19, 12, 0.05);
+}
+
+.lang-toggle-btn:hover {
+  background: var(--cognac-accent);
+  border-color: var(--cognac-accent);
+  color: var(--cream-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(139, 90, 43, 0.3);
+}
+
+.lang-toggle-btn i {
+  font-size: 0.95rem;
+  transition: transform 0.4s ease;
+}
+
+.lang-toggle-btn:hover i {
+  transform: rotate(20deg);
 }
 
 /* En-tête de page */
@@ -633,18 +670,23 @@ footer {
   align-items: center;
   gap: 8px;
   margin-top: 16px;
-  padding: 8px 16px;
+  padding: 10px 18px;
   background: var(--espresso-dark);
   color: var(--cream-light);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   font-weight: 600;
-  border-radius: 8px 8px 8px 0px;
-  transition: background 0.2s ease, transform 0.2s ease;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(30, 19, 12, 0.15);
 }
 
-.clickable-card:hover .card-pdf-badge {
+.card-pdf-badge:hover {
   background: var(--cognac-accent);
-  transform: translateX(4px);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(139, 90, 43, 0.35);
 }
 
 /* Modal Overlay Overlay */

@@ -8,14 +8,12 @@
   
   <!-- Google Fonts : Lora (Gros textes) & Work Sans (Petit texte / body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,400&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script src="script.js" defer></script>
 </head>
@@ -25,42 +23,36 @@
 
   <nav class="main-navbar">
     <div class="nav-container">
-      <a href="index.html" class="brand-link">Morgan Theleste</a>
+      <a href="index.html" class="brand-link" data-i18n="nav_brand">Morgan Theleste</a>
       <ul class="nav-links">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="experience.html">Expérience</a></li>
-        <li><a href="projets.html" class="active">Projets</a></li>
-        <li><a href="formation.html">Formation</a></li>
-        <li><a href="competences.html">Compétences</a></li>
-        <li><a href="engagement.html">Engagement</a></li>
-        <li><a href="references.html">Références</a></li>
+        <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+        <li><a href="experience.html" data-i18n="nav_experience">Expérience</a></li>
+        <li><a href="projets.html" class="active" data-i18n="nav_projects">Projets</a></li>
+        <li><a href="formation.html" data-i18n="nav_education">Formation</a></li>
+        <li><a href="competences.html" data-i18n="nav_skills">Compétences</a></li>
+        <li><a href="engagement.html" data-i18n="nav_engagement">Engagement</a></li>
+        <li><a href="references.html" data-i18n="nav_references">Références</a></li>
       </ul>
+      <button id="lang-toggle-btn" class="lang-toggle-btn" aria-label="Passer en anglais / Switch to English">
+        <i class="fas fa-globe"></i> <span id="lang-btn-text">EN</span>
+      </button>
     </div>
   </nav>
 
   <div class="site-wrapper">
     
     <header class="page-header">
-      <h1 class="page-title">Projets Tech & Recherche</h1>
-      <div class="page-subtitle">Développements logiciels, modélisation et projets d'expérimentation scientifique</div>
+      <h1 class="page-title" data-i18n="proj_header_title">Projets Tech & Recherche</h1>
+      <div class="page-subtitle" data-i18n="proj_header_subtitle">Développements logiciels, modélisation et projets d'expérimentation scientifique</div>
     </header>
 
     <section class="content-section">
 
-      <!-- PhishML — Détection de phishing par machine learning -->
-      <!-- =========================================================================
-           EMPLACEMENT DU FICHIER PDF À INDIGER / REMPLACER MANUELLEMENT :
-           Attribut data-pdf="assets/pdf/PhishML_Rapport.pdf"
-           Placez votre fichier PDF dans le dossier assets/pdf/ et mettez le bon nom ici !
-           ========================================================================= -->
-
-
-
       <!-- Sandbox web pour modèles de deep learning en télédétection (KMUTT Bangkok) -->
-      <article class="content-block clickable-card" data-pdf="assets/pdf/rapport_thailand_theleste.pdf" title="Cliquer pour afficher le rapport PDF">
-        <div class="date-badge-sharp">Mai – Août 2025</div>
-        <h2 class="block-title">Sandbox web pour modèles de deep learning en télédétection</h2>
-        <div class="block-subtitle">Stage de recherche — CERSL, KMUTT (Bangkok, Thaïlande)</div>
+      <article class="content-block">
+        <div class="date-badge-sharp" data-i18n="proj2_date">Mai – Août 2025</div>
+        <h2 class="block-title" data-i18n="proj2_title">Sandbox web pour modèles de deep learning en télédétection</h2>
+        <div class="block-subtitle" data-i18n="proj2_subtitle">Stage de recherche — CERSL, KMUTT (Bangkok, Thaïlande)</div>
         
         <div class="tags-inline">
           <span class="tag-item">Python</span>
@@ -71,14 +63,14 @@
           <span class="tag-item">HPC (SLURM)</span>
         </div>
 
-        <p class="description">
+        <p class="description" data-i18n="proj2_desc">
           Conception et déploiement d'une plateforme web interactive rendant accessibles, sans expertise en calcul haute performance, des modèles de deep learning dédiés à la restauration d'images de télédétection :
         </p>
 
         <ul class="sharp-list">
-          <li><strong>Architecture full-stack et déploiement :</strong> conception du site Streamlit, API dédiée en FastAPI pour l'inférence, déploiement sur machine virtuelle via SSH et conteneurisation Docker.</li>
-          <li><strong>Intégration de deux modèles de deep learning :</strong> HAUNet (super-résolution x4) et DA-Net (débrumisation), connectés au cluster HPC SLURM de l'université pour l'inférence sur GPU NVIDIA L40.</li>
-          <li><strong>Optimisation mémoire et post-traitement :</strong> algorithme de découpage en tuiles (96x96 px) pour éviter les erreurs de saturation mémoire GPU, filtre bilatéral pour corriger les artefacts visuels résiduels.</li>
+          <li data-i18n="proj2_li1"><strong>Architecture full-stack et déploiement :</strong> conception du site Streamlit, API dédiée en FastAPI pour l'inférence, déploiement sur machine virtuelle via SSH et conteneurisation Docker.</li>
+          <li data-i18n="proj2_li2"><strong>Intégration de deux modèles de deep learning :</strong> HAUNet (super-résolution x4) et DA-Net (débrumisation), connectés au cluster HPC SLURM de l'université pour l'inférence sur GPU NVIDIA L40.</li>
+          <li data-i18n="proj2_li3"><strong>Optimisation mémoire et post-traitement :</strong> algorithme de découpage en tuiles (96x96 px) pour éviter les erreurs de saturation mémoire GPU, filtre bilatéral pour corriger les artefacts visuels résiduels.</li>
         </ul>
 
         <!-- Image super resolve -->
@@ -86,17 +78,17 @@
           <img src="assets/images/super_resolve.png" alt="Exemple de Super-Résolution d'image de télédétection (Input Low-Res vs Output Super-Resolved)" class="card-feature-img" loading="lazy" />
         </div>
 
-        <div class="card-pdf-badge">
+        <button class="card-pdf-badge" data-pdf="assets/pdf/rapport_thailand_theleste.pdf" data-title="Sandbox web pour modèles de deep learning en télédétection" data-i18n="proj_click_pdf">
           <i class="fas fa-file-pdf"></i> Cliquer pour consulter le rapport PDF <i class="fas fa-arrow-right"></i>
-        </div>
+        </button>
 
       </article>
 
 
-      <article class="content-block clickable-card" data-pdf="assets/pdf/rapport_phishing.pdf" title="Cliquer pour afficher le rapport PDF">
-        <div class="date-badge-sharp">septembre 2025 – juin 2026</div>
-        <h2 class="block-title">PhishML — Détection de phishing par machine learning</h2>
-        <div class="block-subtitle">Projet de machine learning appliqué à la cybersécurité</div>
+      <article class="content-block">
+        <div class="date-badge-sharp" data-i18n="proj3_date">septembre 2025 – juin 2026</div>
+        <h2 class="block-title" data-i18n="proj3_title">PhishML — Détection de phishing par machine learning</h2>
+        <div class="block-subtitle" data-i18n="proj3_subtitle">Projet de machine learning appliqué à la cybersécurité</div>
         
         <div class="tags-inline">
           <span class="tag-item">Python</span>
@@ -106,14 +98,14 @@
           <span class="tag-item">Cybersécurité forensique</span>
         </div>
 
-        <p class="description">
+        <p class="description" data-i18n="proj3_desc">
           Conception d'un pipeline complet de détection de sites de phishing, sur un dataset équilibré de près de 18 000 URLs enrichi de caractéristiques forensiques :
         </p>
 
         <ul class="sharp-list">
-          <li><strong>Dataset et preprocessing :</strong> équilibrage 50/50, correction du data leakage, pipeline d'encodage robuste (OrdinalEncoder) conçu pour la mise en production.</li>
-          <li><strong>Modélisation et sélection :</strong> comparaison de trois algorithmes selon la métrique prioritaire FPR — modèle Random Forest retenu, avec un FPR de 0.056% et un F1-score de 0.999 sur le jeu de test.</li>
-          <li><strong>Explicabilité SHAP :</strong> identification des signaux forensiques discriminants (poids réseau, erreurs CORS, en-têtes de sécurité) caractéristiques d'une infrastructure de phishing.</li>
+          <li data-i18n="proj3_li1"><strong>Dataset et preprocessing :</strong> équilibrage 50/50, correction du data leakage, pipeline d'encodage robuste (OrdinalEncoder) conçu pour la mise en production.</li>
+          <li data-i18n="proj3_li2"><strong>Modélisation et sélection :</strong> comparaison de trois algorithmes selon la métrique prioritaire FPR — modèle Random Forest retenu, avec un FPR de 0.056% et un F1-score de 0.999 sur le jeu de test.</li>
+          <li data-i18n="proj3_li3"><strong>Explicabilité SHAP :</strong> identification des signaux forensiques discriminants (poids réseau, erreurs CORS, en-têtes de sécurité) caractéristiques d'une infrastructure de phishing.</li>
         </ul>
 
         <!-- Image Explicabilité SHAP -->
@@ -121,16 +113,16 @@
           <img src="assets/images/shap_phishing.png" alt="Explicabilité SHAP — Qu'est-ce qui déclenche une alerte Phishing ?" class="card-feature-img" loading="lazy" />
         </div>
 
-        <div class="card-pdf-badge">
+        <button class="card-pdf-badge" data-pdf="assets/pdf/rapport_phishing.pdf" data-title="PhishML — Détection de phishing par machine learning" data-i18n="proj_click_pdf">
           <i class="fas fa-file-pdf"></i> Cliquer pour consulter le rapport PDF <i class="fas fa-arrow-right"></i>
-        </div>
+        </button>
       </article>
 
       <!-- Jeu Lua LÖVE -->
       <article class="content-block">
-        <div class="date-badge-sharp">Février 2026 – Aujourd'hui</div>
-        <h2 class="block-title">Développement de jeu de plateau 2D (Lua / Framework LÖVE)</h2>
-        <div class="block-subtitle">Projet d'Architecture Logicielle et Programmation Orientée Événement</div>
+        <div class="date-badge-sharp" data-i18n="proj1_date">Février 2026 – Aujourd'hui</div>
+        <h2 class="block-title" data-i18n="proj1_title">Développement de jeu de plateau 2D (Lua / Framework LÖVE)</h2>
+        <div class="block-subtitle" data-i18n="proj1_subtitle">Projet d'Architecture Logicielle et Programmation Orientée Événement</div>
         
         <div class="tags-inline">
           <span class="tag-item">Lua</span>
@@ -140,13 +132,13 @@
           <span class="tag-item">Algorithmique</span>
         </div>
 
-        <p class="description">
+        <p class="description" data-i18n="proj1_desc">
           Conception et développement complet d'un jeu de plateau type échecs avec moteur de jeu sur mesure :
         </p>
 
         <ul class="sharp-list">
-          <li><strong>Programmation Lua & Framework LÖVE (Love2D) :</strong> Implémentation du moteur du jeu, de la gestion du plateau, du déplacement des pièces et de la détection d'état (échec, mat, pat).</li>
-          <li><strong>Interface Graphique & Interactions :</strong> Création d'une interface utilisateur fluide et réactive avec gestion des clics, sélections et animations d'état.</li>
+          <li data-i18n="proj1_li1"><strong>Programmation Lua & Framework LÖVE (Love2D) :</strong> Implémentation du moteur du jeu, de la gestion du plateau, du déplacement des pièces et de la détection d'état (échec, mat, pat).</li>
+          <li data-i18n="proj1_li2"><strong>Interface Graphique & Interactions :</strong> Création d'une interface utilisateur fluide et réactive avec gestion des clics, sélections et animations d'état.</li>
         </ul>
 
         <div class="card-image-container">
@@ -156,10 +148,10 @@
       </article>
 
       <!-- Projet TIPE -->
-      <article class="content-block clickable-card" data-pdf="assets/pdf/rapport_ppr.pdf" title="Cliquer pour afficher le rapport PDF">
-        <div class="date-badge-sharp">01/2022 – 06/2024</div>
-        <h2 class="block-title">Projet TIPE : Étude des charges à l'interface de l'eau en milieu hydrophobe</h2>
-        <div class="block-subtitle">Projet de Recherche Expérimentale et Modélisation Physique</div>
+      <article class="content-block">
+        <div class="date-badge-sharp" data-i18n="proj4_date">01/2022 – 06/2024</div>
+        <h2 class="block-title" data-i18n="proj4_title">Projet TIPE : Étude des charges à l'interface de l'eau en milieu hydrophobe</h2>
+        <div class="block-subtitle" data-i18n="proj4_subtitle">Projet de Recherche Expérimentale et Modélisation Physique</div>
         
         <div class="tags-inline">
           <span class="tag-item">Physique Expérimentale</span>
@@ -169,30 +161,30 @@
           <span class="tag-item">Rédaction Scientifique</span>
         </div>
 
-        <p class="description">
+        <p class="description" data-i18n="proj4_desc">
           Travail d'initiative personnelle encadré (TIPE) de deux ans combinant expérimentation physique et analyse de données :
         </p>
 
         <ul class="sharp-list">
-          <li><strong>Capture de charges électriques :</strong> Étude théorique et expérimentale du transfert de charges par frottement entre une goutte d'eau et un matériau hydrophobe.</li>
-          <li><strong>Expérimentations Haute Tension :</strong> Conception et montage d'un dispositif expérimental soumettant les gouttelettes d’eau à des champs électriques contrôlés de très haute tension.</li>
-          <li><strong>Résultats & Démonstration :</strong> Démonstration physique du phénomène d'attraction d'une gouttelette d'eau initialement électriquement neutre sous l'effet d'un champ électrique intense.</li>
+          <li data-i18n="proj4_li1"><strong>Capture de charges électriques :</strong> Étude théorique et expérimentale du transfert de charges par frottement entre une goutte d'eau et un matériau hydrophobe.</li>
+          <li data-i18n="proj4_li2"><strong>Expérimentations Haute Tension :</strong> Conception et montage d'un dispositif expérimental soumettant les gouttelettes d’eau à des champs électriques contrôlés de très haute tension.</li>
+          <li data-i18n="proj4_li3"><strong>Résultats & Démonstration :</strong> Démonstration physique du phénomène d'attraction d'une gouttelette d'eau initialement électriquement neutre sous l'effet d'un champ électrique intense.</li>
         </ul>
 
         <div class="card-image-container">
           <img src="assets/images/PPR.png" alt="Démonstration du déplacement d'une goutte dans un champs hautement électrique" class="card-feature-img" loading="lazy" />
         </div>
 
-        <div class="card-pdf-badge">
+        <button class="card-pdf-badge" data-pdf="assets/pdf/rapport_ppr.pdf" data-title="Projet TIPE : Étude des charges à l'interface de l'eau en milieu hydrophobe" data-i18n="proj_click_pdf">
           <i class="fas fa-file-pdf"></i> Cliquer pour consulter le rapport PDF <i class="fas fa-arrow-right"></i>
-        </div>
+        </button>
 
       </article>
 
     </section>
 
     <footer>
-      <p>&copy; Morgan Theleste — Élève-ingénieur IRIS @ SeaTech</p>
+      <p data-i18n="footer_rights">&copy; Morgan Theleste — Élève-ingénieur IRIS @ SeaTech</p>
     </footer>
 
   </div>
@@ -221,7 +213,7 @@
           <button id="pdf-zoom-in" class="pdf-tb-btn" title="Zoom avant"><i class="fas fa-search-plus"></i></button>
         </div>
 
-        <a id="pdf-modal-download" href="assets/pdf/PhishML_Rapport.pdf" download target="_blank" class="pdf-download-link"><i class="fas fa-download"></i> Télécharger</a>
+        <a id="pdf-modal-download" href="assets/pdf/PhishML_Rapport.pdf" download target="_blank" class="pdf-download-link" data-i18n="pdf_download_text"><i class="fas fa-download"></i> Télécharger</a>
       </div>
 
       <div class="pdf-modal-body" id="pdf-modal-body">
