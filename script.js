@@ -573,11 +573,11 @@ document.addEventListener('DOMContentLoaded', () => {
       // index.html
       header_title_home: "Morgan Theleste",
       header_subtitle_home: "Élève-ingénieur en 3ème année • Département IRIS @ SeaTech",
-      status_box: "<i class=\"fas fa-search\"></i> Recherche d'un stage de 6 mois à partir de Février 2027",
+      status_box: "<i class=\"fas fa-search\"></i> Recherche d'un stage de 6 mois à partir de Mars 2027",
       contact_location: "Toulon, 83200",
       contact_license: "Permis B",
       profile_title: "Profil & Objectif",
-      profile_desc: "Élève-ingénieur en Sciences des Données et Systèmes d'Information au sein de SeaTech (membre du groupe INP), je suis rigoureux, curieux et animé par un fort esprit d'équipe. Fort d'un intérêt marqué pour le Machine/Deep Learning et les architectures Cloud Data, je recherche un stage de 6 mois à partir de février 2027. Mon ambition est de mettre mes compétences en développement, analyse et optimisation directement au profit de vos projets d'ingénierie.",
+      profile_desc: "Élève-ingénieur en Sciences des Données et Systèmes d'Information au sein de SeaTech (membre du groupe INP), je suis rigoureux, curieux et animé par un fort esprit d'équipe. Fort d'un intérêt marqué pour le Machine/Deep Learning et les architectures Cloud Data, je recherche un stage de 6 mois à partir de Mars 2027. Mon ambition est de mettre mes compétences en développement, analyse et optimisation directement au profit de vos projets d'ingénierie.",
       explore_rubrics: "Explorez mes rubriques",
       card1_title: "01. Expérience Pro",
       card1_desc: "Stage KMUTT à Bangkok (Streamlit, cluster SLURM, GPU L40), bureau d'études IMET-BETP et Mairie de La Valette-du-Var.",
@@ -637,7 +637,7 @@ document.addEventListener('DOMContentLoaded', () => {
       proj3_li1: "<strong>Dataset et preprocessing :</strong> équilibrage 50/50, correction du data leakage, pipeline d'encodage robuste (OrdinalEncoder) conçu pour la mise en production.",
       proj3_li2: "<strong>Modélisation et sélection :</strong> comparaison de trois algorithmes selon la métrique prioritaire FPR — modèle Random Forest retenu, avec un FPR de 0.056% et un F1-score de 0.999 sur le jeu de test.",
       proj3_li3: "<strong>Explicabilité SHAP :</strong> identification des signaux forensiques discriminants (poids réseau, erreurs CORS, en-têtes de sécurité) caractéristiques d'une infrastructure de phishing.",
-      proj1_date: "Février 2026 – Aujourd'hui",
+      proj1_date: "Mars 2026 – Aujourd'hui",
       proj1_title: "Développement de jeu de plateau 2D (Lua / Framework LÖVE)",
       proj1_subtitle: "Projet d'Architecture Logicielle et Programmation Orientée Événement",
       proj1_desc: "Conception et développement complet d'un jeu de plateau type échecs avec moteur de jeu sur mesure :",
@@ -709,7 +709,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ref_2_role: "Head of Computer Engineering Department",
       ref_2_lab: "Computer Engineering Department, Laboratoire CERSL (KMUTT Bangkok)",
       contact_section_title: "Me Contacter Directement",
-      contact_section_desc: "Disponible pour un stage de 6 mois à partir de <strong>Février 2027</strong> en Data Science, Ingénierie Logicielle ou Systèmes d'Information :",
+      contact_section_desc: "Disponible pour un stage de 6 mois à partir de <strong>Mars 2027</strong> en Data Science, Ingénierie Logicielle ou Systèmes d'Information :",
       contact_license: "Permis B"
     },
 
@@ -729,11 +729,11 @@ document.addEventListener('DOMContentLoaded', () => {
       // index.html
       header_title_home: "Morgan Theleste",
       header_subtitle_home: "3rd Year Engineering Student • IRIS Department @ SeaTech",
-      status_box: "<i class=\"fas fa-search\"></i> Seeking a 6-month internship starting February 2027",
+      status_box: "<i class=\"fas fa-search\"></i> Seeking a 6-month internship starting March 2027",
       contact_location: "Toulon, France",
       contact_license: "Driver's License (Class B)",
       profile_title: "Profile & Objective",
-      profile_desc: "As a Data Science and Information Systems engineering student at SeaTech (member of INP group), I am rigorous, curious, and driven by strong teamwork skills. With a keen interest in Machine/Deep Learning and Cloud Data architectures, I am looking for a 6-month internship starting February 2027. My goal is to apply my software development, data analysis, and optimization skills directly to your engineering projects.",
+      profile_desc: "As a Data Science and Information Systems engineering student at SeaTech (member of INP group), I am rigorous, curious, and driven by strong teamwork skills. With a keen interest in Machine/Deep Learning and Cloud Data architectures, I am looking for a 6-month internship starting March 2027. My goal is to apply my software development, data analysis, and optimization skills directly to your engineering projects.",
       explore_rubrics: "Explore my sections",
       card1_title: "01. Work Experience",
       card1_desc: "KMUTT research internship in Bangkok (Streamlit, SLURM cluster, L40 GPU), IMET-BETP design office, and La Valette-du-Var City Council.",
@@ -793,7 +793,7 @@ document.addEventListener('DOMContentLoaded', () => {
       proj3_li1: "<strong>Dataset & Preprocessing:</strong> 50/50 balancing, data leakage fix, and robust encoding pipeline (OrdinalEncoder) ready for production.",
       proj3_li2: "<strong>Modeling & Selection:</strong> Evaluation of 3 algorithms prioritizing FPR — Random Forest selected with 0.056% FPR and 0.999 F1-score on test set.",
       proj3_li3: "<strong>SHAP Explainability:</strong> Identification of key discriminant forensic signals (network weight, CORS errors, security headers) characteristic of phishing infrastructure.",
-      proj1_date: "February 2026 – Present",
+      proj1_date: "March 2026 – Present",
       proj1_title: "2D Board Game Development (Lua / LÖVE Framework)",
       proj1_subtitle: "Software Architecture & Event-Driven Programming Project",
       proj1_desc: "Full design and development of a chess-type board game with a custom game engine:",
@@ -865,7 +865,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ref_2_role: "Head of Computer Engineering Department",
       ref_2_lab: "Computer Engineering Department, CERSL Laboratory (KMUTT Bangkok)",
       contact_section_title: "Contact Me Directly",
-      contact_section_desc: "Available for a 6-month internship starting <strong>February 2027</strong> in Data Science, Software Engineering, or Information Systems:",
+      contact_section_desc: "Available for a 6-month internship starting <strong>March 2027</strong> in Data Science, Software Engineering, or Information Systems:",
       contact_license: "Driver's License (Class B)"
     }
   };

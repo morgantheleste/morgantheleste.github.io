@@ -1,6 +1,4 @@
-/* ==========================================================================
-   MORGAN THELESTE - FEUILLE DE STYLE CORRIGÉE (FIX ARTEFACTS SUR POINTS CARROUSEL)
-   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Nunito+Sans:ital,opsz,wght@0,6..12,400..800;1,6..12,400..800&display=swap');
 
 :root {
   --espresso-dark: #1e130c;   /* Marron foncé espresso */
@@ -9,12 +7,22 @@
   --caramel-tan: #c19a6b;     /* Marron caramel */
   --cream-light: #f3e2c6;     /* Couleur crème / ivoire */
 
-  --bg-primary: #f3e2c6;
-  --bg-card: rgba(246, 234, 216, 0.85);       /* Fond verre dépoli beige opaque */
-  --bg-card-hover: rgba(250, 241, 227, 0.92); /* Fond verre dépoli au survol */
+  /* Fond de page et surface des cartes (Cartes un poil plus sombres que le fond) */
+  --bg-primary: #e8dbca;      /* Canvas de fond de page */
+  --bg-card: #dfd1bf;         /* Surface des cartes : un poil plus sombre que le fond */
+  --bg-card-hover: #d7c8b4;   /* Surface au survol */
 
-  --font-heading: 'Instrument Serif', serif;  /* Titres : plus distinctif que Lora/Playfair */
-  --font-body: 'IBM Plex Sans', sans-serif;   /* Texte : identité plus technique/ingénieur que Work Sans/Inter */
+  /* Lumière (Haut-Gauche) et Ombre (Bas-Droit) Neumorphiques unifiées sur tout le site */
+  --convex-light: rgba(255, 255, 255, 0.85);                 /* Lumière blanche/ivoire en haut à gauche */
+  --convex-dark: rgba(150, 120, 85, 0.45);                   /* Ombre caramel/espresso en bas à droite */
+
+  --shadow-convex: -8px -8px 20px var(--convex-light), 8px 8px 22px var(--convex-dark);
+  --shadow-convex-sm: -4px -4px 10px var(--convex-light), 4px 4px 12px var(--convex-dark);
+  --shadow-convex-hover: -10px -10px 24px rgba(255, 255, 255, 0.95), 10px 10px 26px rgba(150, 120, 85, 0.50);
+  --shadow-concave-active: inset 4px 4px 10px rgba(150, 120, 85, 0.40), inset -4px -4px 10px rgba(255, 255, 255, 0.85);
+
+  --font-heading: 'Nunito Sans', sans-serif;   /* Police unifiée Nunito Sans pour titres */
+  --font-body: 'Nunito Sans', sans-serif;     /* Police globale Nunito Sans pour le texte */
 }
 
 /* Réinitialisation globale des liens */
@@ -39,8 +47,7 @@ body {
   font-family: var(--font-body);
   font-weight: 400;
   color: var(--espresso-dark);
-  background: linear-gradient(135deg, var(--cream-light) 0%, var(--caramel-tan) 100%);
-  background-attachment: fixed;
+  background: var(--bg-primary);
   min-height: 100vh;
   width: 100%;
   padding: 0;
@@ -82,16 +89,15 @@ h2, h3, .block-title, .brand-link {
   padding: 10px 24px;
 }
 
-/* BARRE DE NAVIGATION ÉPURÉE & ÉLÉGANTE (POLICE LORA) */
+/* BARRE DE NAVIGATION NEUMORPHIQUE UNIFIÉE */
 .main-navbar {
-  background: rgba(243, 226, 198, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: var(--bg-primary);
   position: sticky;
   top: 0;
   z-index: 100;
   width: 100%;
-  box-shadow: 0 4px 20px rgba(30, 19, 12, 0.05);
+  box-shadow: 0 8px 20px rgba(45, 30, 20, 0.08), 0 -4px 12px rgba(255, 252, 244, 0.8);
+  margin-bottom: 24px;
 }
 
 .nav-container {
@@ -107,12 +113,13 @@ h2, h3, .block-title, .brand-link {
 }
 
 .brand-link {
-  font-family: var(--font-heading);
-  font-size: 1.55rem;
-  font-weight: 700;
-  color: var(--espresso-dark);
+  font-family: var(--font-heading) !important;
+  font-weight: 800 !important;
+  font-size: 1.6rem !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  color: var(--chocolate-dark) !important;
   text-decoration: none !important;
-  letter-spacing: -0.5px;
   transition: color 0.3s ease;
 }
 
@@ -134,75 +141,69 @@ h2, h3, .block-title, .brand-link {
   font-size: 1.05rem;
   color: var(--chocolate-dark);
   text-decoration: none !important;
-  background: transparent !important;
+  background: var(--bg-card) !important;
   border: none !important;
-  border-radius: 0 !important;
-  padding: 6px 2px;
-  position: relative;
-  transition: color 0.3s ease;
+  border-radius: 50px !important;
+  padding: 8px 16px !important;
+  box-shadow: -4px -4px 10px var(--convex-light), 4px 4px 12px var(--convex-dark);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
   display: inline-block;
-}
-
-/* Trait de soulignement fluide et assombrissement du texte au survol */
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background-color: var(--espresso-dark);
-  transition: width 0.3s cubic-bezier(0.2, 0, 0, 1);
-  border-radius: 2px;
+  cursor: pointer;
 }
 
 .nav-links a:hover {
   color: var(--espresso-dark) !important;
-  background: transparent !important;
-  transform: none !important;
+  box-shadow: -6px -6px 14px rgba(255, 255, 255, 0.95), 6px 6px 16px rgba(160, 130, 95, 0.35) !important;
+  transform: translateY(-2px) !important;
 }
 
-.nav-links a:hover::after {
-  width: 100%;
+.nav-links a:active {
+  transform: translateY(2px) scale(0.95) !important;
+  box-shadow: var(--shadow-concave-active) !important;
+  transition: all 0.08s cubic-bezier(0.2, 0, 0, 1) !important;
 }
 
 .nav-links a.active {
   color: var(--espresso-dark) !important;
   font-weight: 700;
-  background: transparent !important;
+  background: var(--bg-card) !important;
+  box-shadow: var(--shadow-concave-active) !important;
+  transform: none !important;
 }
 
-.nav-links a.active::after {
-  width: 100%;
-  background-color: var(--espresso-dark);
+.nav-links a.active:hover {
+  transform: none !important;
+  box-shadow: var(--shadow-concave-active) !important;
 }
 
-/* Bouton de Changement de Langue (FR / EN) */
+/* Bouton de Changement de Langue (FR / EN) - Effet 3D tactile & concave */
 .lang-toggle-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(139, 90, 43, 0.12);
-  border: 1px solid rgba(139, 90, 43, 0.25);
+  background: var(--bg-card);
+  border: none !important;
   color: var(--chocolate-dark);
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.88rem;
-  padding: 6px 14px;
-  border-radius: 20px;
+  padding: 8px 18px;
+  border-radius: 50px;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 2px 8px rgba(30, 19, 12, 0.05);
+  box-shadow: var(--shadow-convex-sm);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .lang-toggle-btn:hover {
-  background: var(--cognac-accent);
-  border-color: var(--cognac-accent);
-  color: var(--cream-light);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(139, 90, 43, 0.3);
+  color: var(--espresso-dark);
+  transform: translateY(-2px);
+  box-shadow: -6px -6px 14px rgba(255, 255, 255, 0.95), 6px 6px 16px rgba(160, 130, 95, 0.35);
+}
+
+.lang-toggle-btn:active {
+  transform: translateY(2px) scale(0.95) !important;
+  box-shadow: var(--shadow-concave-active) !important;
+  transition: all 0.08s cubic-bezier(0.2, 0, 0, 1) !important;
 }
 
 .lang-toggle-btn i {
@@ -221,12 +222,14 @@ h2, h3, .block-title, .brand-link {
   margin-bottom: 15px;
 }
 
-.page-title {
-  font-size: 3.5rem;
-  font-weight: 700;
-  letter-spacing: -1px;
-  color: var(--espresso-dark);
-  margin-bottom: 8px;
+.page-title, h1.page-title {
+  font-family: var(--font-heading) !important;
+  font-weight: 800 !important;
+  font-size: 3.6rem !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  color: var(--chocolate-dark) !important;
+  margin-bottom: 12px !important;
 }
 
 .page-subtitle {
@@ -239,15 +242,15 @@ h2, h3, .block-title, .brand-link {
 .status-box {
   font-family: var(--font-body);
   display: inline-block;
-  margin-top: 14px;
-  padding: 8px 18px;
-  background: var(--bg-card);
-  border: none;
-  border-radius: 10px 10px 10px 0px !important; /* BULLE: BAS-GAUCHE SHARP 0PX */
-  font-size: 0.95rem;
+  margin-top: 18px;
+  padding: 14px 26px;
+  background: var(--bg-card) !important;
+  border: none !important;
+  border-radius: 50px !important; /* BULLE: BAS-GAUCHE SHARP 0PX */
+  font-size: 1.02rem;
   font-weight: 600;
   color: var(--espresso-dark);
-  box-shadow: 0 4px 15px rgba(30, 19, 12, 0.05);
+  box-shadow: var(--shadow-convex);
 }
 
 /* Chips de contact */
@@ -264,46 +267,61 @@ h2, h3, .block-title, .brand-link {
   align-items: center;
   gap: 8px;
   background: var(--bg-card);
-  border: none;
-  padding: 10px 20px;
+  border: none !important;
+  padding: 12px 22px;
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--espresso-dark);
   text-decoration: none !important;
-  border-radius: 10px 10px 10px 0px !important; /* BULLE: BAS-GAUCHE SHARP 0PX */
-  box-shadow: 0 4px 15px rgba(30, 19, 12, 0.05);
-  transition: all 0.2s ease;
+  border-radius: 50px !important; /* BULLE: BAS-GAUCHE SHARP 0PX */
+  box-shadow: var(--shadow-convex-sm);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+a.contact-item {
+  cursor: pointer;
 }
 
 a.contact-item:hover {
-  background: var(--espresso-dark);
-  color: var(--cream-light);
-  transform: translateY(-3px);
+  color: var(--espresso-dark);
+  transform: translateY(-2px);
+  box-shadow: -7px -7px 16px rgba(255, 255, 255, 0.95), 7px 7px 18px rgba(160, 130, 95, 0.38);
+}
+
+a.contact-item:active {
+  transform: translateY(2px) scale(0.96) !important;
+  box-shadow: var(--shadow-concave-active) !important;
+  transition: all 0.08s cubic-bezier(0.2, 0, 0, 1) !important;
 }
 
 /* CARTES CLASSIQUES */
 .content-section {
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 38px !important;
 }
 
 .content-block {
   width: 100%;
-  background: var(--bg-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.5) !important;
-  border-radius: 20px 20px 20px 0px !important; /* BAS-GAUCHE: 0PX STRICTEMENT */
-  padding: 38px 40px;
-  margin-bottom: 15px; /* Espacement confortable de 15px entre les cartes */
-  box-shadow: 0 10px 30px rgba(30, 19, 12, 0.07), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  background: var(--bg-card) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  border-radius: 50px;
+  padding: 42px 46px;
+  margin-bottom: 60px !important; /* Espacement aéré de 36px pour isoler complètement les ombres 3D */
+  box-shadow: var(--shadow-convex) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
+/* Content Block Static Convex (No Hover Effect) */
+
 .block-title {
-  font-size: 1.8rem;
-  font-weight: 700;
+  font-family: var(--font-heading) !important;
+  font-weight: 800 !important;
+  font-size: 1.8rem !important;
+  letter-spacing: 0.5px !important;
+  color: var(--chocolate-dark) !important;
   margin-bottom: 6px;
-  color: var(--espresso-dark);
 }
 
 .block-subtitle {
@@ -364,7 +382,7 @@ ul.sharp-list li {
   overflow: hidden !important;
   padding: 0 !important;
   margin: 0 !important;
-  border-radius: 20px 20px 20px 0px !important;
+  border-radius: 50px !important;
   clip-path: inset(0 round 20px 20px 20px 0px);
 }
 
@@ -397,20 +415,34 @@ ul.sharp-list li {
   background: var(--bg-card) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.5) !important;
-  border-radius: 20px 20px 20px 0px !important;
+  border: none !important;
+  border-radius: 50px !important;
   padding: 42px !important;
   margin: 0 !important;
   text-decoration: none !important;
   color: var(--espresso-dark) !important;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
-  transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), background 0.25s ease !important;
+  box-shadow: var(--shadow-convex) !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background 0.25s ease !important;
   min-height: 280px;
+  cursor: pointer !important;
 }
 
 .section-card:hover, a.section-card:hover {
   background: var(--bg-card-hover) !important;
-  transform: translateY(-4px) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: var(--shadow-convex-hover) !important;
+}
+
+.section-card:hover .card-link-action i, a.section-card:hover .card-link-action i {
+  transform: translateX(5px) !important;
+  transition: transform 0.25s ease !important;
+}
+
+.section-card:active, a.section-card:active {
+  transform: translateY(2px) scale(0.988) !important;
+  background: var(--bg-card) !important;
+  box-shadow: var(--shadow-concave-active) !important;
+  transition: all 0.08s cubic-bezier(0.2, 0, 0, 1) !important;
 }
 
 .section-card *, a.section-card * {
@@ -419,9 +451,10 @@ ul.sharp-list li {
 
 .section-card h3 {
   font-family: var(--font-heading) !important;
+  font-weight: 800 !important;
   font-size: 1.8rem !important;
-  font-weight: 700 !important;
-  color: var(--espresso-dark) !important;
+  letter-spacing: 0.5px !important;
+  color: var(--chocolate-dark) !important;
   border-bottom: 2px solid rgba(30, 19, 12, 0.1) !important;
   padding-bottom: 10px !important;
   margin-bottom: 14px !important;
@@ -448,7 +481,7 @@ ul.sharp-list li {
   gap: 8px !important;
 }
 
-/* Boutons de contrôle du Carrousel */
+/* Boutons de contrôle du Carrousel - Effet 3D tactile & concave */
 .carousel-controls {
   display: flex;
   justify-content: space-between;
@@ -462,9 +495,9 @@ ul.sharp-list li {
 }
 
 .carousel-btn {
-  background: var(--espresso-dark);
-  color: var(--cream-light);
-  border: none;
+  background: var(--bg-card);
+  color: var(--espresso-dark);
+  border: none !important;
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -473,13 +506,19 @@ ul.sharp-list li {
   justify-content: center;
   font-size: 1.1rem;
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(30, 19, 12, 0.15);
+  box-shadow: var(--shadow-convex-sm);
   transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
 }
 
 .carousel-btn:hover {
-  background: var(--cognac-accent);
-  transform: translateY(-3px) scale(1.05);
+  transform: translateY(-2px);
+  box-shadow: -7px -7px 16px rgba(255, 255, 255, 0.95), 7px 7px 18px rgba(160, 130, 95, 0.38);
+}
+
+.carousel-btn:active {
+  transform: translateY(2px) scale(0.92) !important;
+  box-shadow: var(--shadow-concave-active) !important;
+  transition: all 0.08s cubic-bezier(0.2, 0, 0, 1) !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -503,16 +542,16 @@ ul.sharp-list li {
   -webkit-appearance: none !important;
   -moz-appearance: none !important;
   display: block !important;
-  width: 12px !important;
-  height: 12px !important;
+  width: 14px !important;
+  height: 14px !important;
   border-radius: 9999px !important;
-  background: rgba(30, 19, 12, 0.35) !important;
+  background: var(--bg-card) !important;
   border: none !important;
   outline: none !important;
   padding: 0 !important;
   margin: 0 !important;
   cursor: pointer !important;
-  box-shadow: none !important;
+  box-shadow: inset 3px 3px 6px rgba(160, 130, 95, 0.35), inset -3px -3px 6px rgba(255, 255, 255, 0.85) !important;
   line-height: 0 !important;
   font-size: 0 !important;
   overflow: hidden !important;
@@ -528,15 +567,15 @@ ul.sharp-list li {
 .carousel-dot:hover {
   outline: none !important;
   border: none !important;
-  box-shadow: none !important;
+  box-shadow: inset 3px 3px 6px rgba(160, 130, 95, 0.35), inset -3px -3px 6px rgba(255, 255, 255, 0.85) !important;
 }
 
 .carousel-dot.active {
-  width: 32px !important;
-  height: 12px !important;
+  width: 36px !important;
+  height: 14px !important;
   border-radius: 9999px !important;
   background: var(--espresso-dark) !important;
-  box-shadow: none !important;
+  box-shadow: var(--shadow-convex-sm) !important;
   border: none !important;
 }
 
@@ -582,28 +621,32 @@ ul.sharp-list li {
 .refs-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 15px; /* Espacement de 15px entre cartes de références */
+  gap: 34px !important; /* Espacement aéré de 34px entre cartes de références */
   width: 100%;
-  margin-top: 15px;
+  margin-top: 24px !important;
 }
 
 .ref-card-sharp {
   width: 100%;
-  background: var(--bg-card);
+  background: var(--bg-card) !important;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.5) !important;
-  border-radius: 12px 12px 12px 0px !important; /* BULLE: BAS-GAUCHE SHARP 0PX, 12PX SUR AUTRES COINS */
+  border: none !important;
+  border-radius: 50px !important; /* BULLE: BAS-GAUCHE SHARP 0PX, 12PX SUR AUTRES COINS */
   padding: 28px;
-  box-shadow: 0 8px 25px rgba(30, 19, 12, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  box-shadow: var(--shadow-convex);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background 0.25s ease;
 }
 
+/* Ref Card Static Convex (No Hover Effect) */
+
 .ref-card-sharp h4 {
-  font-family: var(--font-heading);
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--espresso-dark);
-  margin-bottom: 4px;
+  font-family: var(--font-heading) !important;
+  font-weight: 800 !important;
+  font-size: 1.35rem !important;
+  letter-spacing: 0.5px !important;
+  color: var(--chocolate-dark) !important;
+  margin-bottom: 6px;
 }
 
 .ref-card-sharp p {
@@ -643,7 +686,7 @@ footer {
   .site-wrapper { padding: 16px 3vw; }
   .nav-container { padding: 12px 3vw; flex-direction: column; align-items: flex-start; }
   .page-title { font-size: 2.4rem; }
-  .content-block, .section-card { padding: 25px !important; border-radius: 20px 20px 20px 0px !important; }
+  .content-block, .section-card { padding: 25px !important; border-radius: 50px !important; }
   .carousel-controls { flex-direction: column-reverse; gap: 16px; align-items: center; }
   .pdf-modal-container { width: 95vw; height: 90vh; }
   .pdf-modal-header { padding-left: 60px; }
@@ -658,35 +701,36 @@ footer {
   position: relative;
 }
 
-.clickable-card:hover {
-  transform: translateY(-4px) !important;
-  box-shadow: 0 16px 40px rgba(30, 19, 12, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.8) !important;
-  background: var(--bg-card-hover) !important;
-}
+/* Clickable Card Static Convex (No Hover Effect) */
 
 .card-pdf-badge {
   font-family: var(--font-body);
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 16px;
-  padding: 10px 18px;
-  background: var(--espresso-dark);
-  color: var(--cream-light);
-  font-size: 0.92rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 8px;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: var(--bg-card);
+  color: var(--espresso-dark);
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: none !important;
+  border-radius: 50px;
   cursor: pointer;
+  box-shadow: var(--shadow-convex-sm);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 12px rgba(30, 19, 12, 0.15);
 }
 
 .card-pdf-badge:hover {
-  background: var(--cognac-accent);
-  color: #fff;
+  color: var(--cognac-accent);
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(139, 90, 43, 0.35);
+  box-shadow: -7px -7px 16px rgba(255, 255, 255, 0.95), 7px 7px 18px rgba(160, 130, 95, 0.38);
+}
+
+.card-pdf-badge:active {
+  transform: translateY(2px) scale(0.96) !important;
+  box-shadow: var(--shadow-concave-active) !important;
+  transition: all 0.08s cubic-bezier(0.2, 0, 0, 1) !important;
 }
 
 /* Modal Overlay Overlay */
@@ -696,9 +740,9 @@ footer {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(30, 19, 12, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(30, 19, 12, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -714,18 +758,16 @@ footer {
   pointer-events: auto;
 }
 
-/* Modal Container Glassmorphic */
+/* Modal Container Neumorphique Éléguant (Sans bordure brillante) */
 .pdf-modal-container {
   position: relative;
   width: 92vw;
   max-width: 1200px;
   height: 88vh;
   background: var(--bg-card);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 20px 20px 20px 0px;
-  box-shadow: 0 25px 60px rgba(30, 19, 12, 0.35);
+  border: none !important;
+  border-radius: 40px;
+  box-shadow: 0 25px 65px rgba(20, 12, 6, 0.45);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -737,30 +779,37 @@ footer {
   transform: scale(1) translateY(0);
 }
 
-/* BOUTON FERMER (PETITE CROIX STRICTEMENT EN HAUT À GAUCHE) */
+/* BOUTON FERMER (PETITE CROIX EN HAUT À GAUCHE NEUMORPHIQUE) */
 .pdf-modal-close-btn {
   position: absolute;
   top: 14px;
   left: 16px;
   z-index: 100;
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: var(--espresso-dark);
-  color: var(--cream-light);
-  border: none;
+  background: var(--bg-card);
+  color: var(--chocolate-dark);
+  border: none !important;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.1rem;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(30, 19, 12, 0.2);
-  transition: all 0.2s ease;
+  box-shadow: var(--shadow-convex-sm);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .pdf-modal-close-btn:hover {
-  background: var(--cognac-accent);
-  transform: scale(1.1) rotate(90deg);
+  color: var(--cognac-accent);
+  transform: scale(1.08);
+  box-shadow: -6px -6px 14px rgba(255, 255, 255, 0.95), 6px 6px 16px rgba(160, 130, 95, 0.35);
+}
+
+.pdf-modal-close-btn:active {
+  transform: scale(0.94) !important;
+  box-shadow: var(--shadow-concave-active) !important;
+  transition: all 0.08s ease !important;
 }
 
 .pdf-modal-header {
@@ -771,8 +820,9 @@ footer {
   align-items: center;
   justify-content: space-between;
   padding: 14px 20px 14px 68px; /* Marge à gauche pour la croix en haut à gauche */
-  background: rgba(246, 234, 216, 0.95);
-  border-bottom: 1px solid rgba(30, 19, 12, 0.12);
+  background: var(--bg-card);
+  border-bottom: 1px solid rgba(139, 90, 43, 0.15);
+  box-shadow: 0 4px 15px rgba(150, 120, 85, 0.08);
 }
 
 .pdf-modal-body {
@@ -798,28 +848,37 @@ footer {
 .pdf-download-link {
   font-family: var(--font-body);
   font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--cognac-accent);
+  font-weight: 700;
+  color: var(--chocolate-dark);
   text-decoration: none !important;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 12px;
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 6px;
-  transition: background 0.2s ease;
+  padding: 8px 18px;
+  background: var(--bg-card);
+  border: none !important;
+  border-radius: 50px;
+  box-shadow: var(--shadow-convex-sm);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .pdf-download-link:hover {
-  background: var(--espresso-dark);
-  color: var(--cream-light);
+  color: var(--espresso-dark);
+  transform: translateY(-2px);
+  box-shadow: -6px -6px 14px rgba(255, 255, 255, 0.95), 6px 6px 16px rgba(160, 130, 95, 0.35);
+}
+
+.pdf-download-link:active {
+  transform: translateY(2px) scale(0.95) !important;
+  box-shadow: var(--shadow-concave-active) !important;
+  transition: all 0.08s ease !important;
 }
 
 /* Image preview sur les cartes de projets */
 .card-image-container {
   width: 100%;
   margin: 16px 0;
-  border-radius: 12px;
+  border-radius: 50px;
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(30, 19, 12, 0.08);
   border: 1px solid rgba(30, 19, 12, 0.1);
@@ -836,34 +895,43 @@ footer {
   background: #ffffff;
 }
 
-/* Toolbar du lecteur PDF sophistiqué */
+/* Toolbar du lecteur PDF (Neumorphisme Doux) */
 .pdf-toolbar-controls {
   display: flex;
   align-items: center;
   gap: 6px;
-  background: rgba(30, 19, 12, 0.08);
-  padding: 4px 12px;
-  border-radius: 8px;
+  background: var(--bg-primary);
+  padding: 6px 14px;
+  border-radius: 50px;
+  box-shadow: inset 3px 3px 8px rgba(150, 120, 85, 0.35), inset -3px -3px 8px rgba(255, 255, 255, 0.85);
 }
 
 .pdf-tb-btn {
-  background: transparent;
-  border: none;
-  color: var(--espresso-dark);
+  background: var(--bg-card);
+  border: none !important;
+  color: var(--chocolate-dark);
   width: 32px;
   height: 32px;
-  border-radius: 6px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   font-size: 0.9rem;
-  transition: all 0.2s ease;
+  box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.85), 2px 2px 6px rgba(150, 120, 85, 0.35);
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .pdf-tb-btn:hover {
-  background: var(--espresso-dark);
-  color: var(--cream-light);
+  color: var(--cognac-accent);
+  transform: translateY(-1px);
+  box-shadow: -3px -3px 8px rgba(255, 255, 255, 0.9), 3px 3px 8px rgba(150, 120, 85, 0.4);
+}
+
+.pdf-tb-btn:active {
+  transform: translateY(1px) scale(0.92) !important;
+  box-shadow: inset 2px 2px 5px rgba(150, 120, 85, 0.4), inset -2px -2px 5px rgba(255, 255, 255, 0.85) !important;
+  transition: all 0.08s ease !important;
 }
 
 .pdf-page-indicator, .pdf-zoom-indicator {
@@ -879,9 +947,10 @@ footer {
 .pdf-page-input {
   width: 44px;
   height: 28px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(30, 19, 12, 0.25);
-  border-radius: 4px;
+  background: var(--bg-card);
+  border: none !important;
+  border-radius: 50px;
+  box-shadow: inset 2px 2px 5px rgba(150, 120, 85, 0.35), inset -2px -2px 5px rgba(255, 255, 255, 0.85);
   text-align: center;
   font-family: var(--font-body);
   font-size: 0.88rem;
@@ -893,18 +962,18 @@ footer {
 }
 
 .pdf-page-input:focus {
-  border-color: var(--cognac-accent);
-  background: #ffffff;
-  box-shadow: 0 0 0 2px rgba(139, 90, 43, 0.25);
+  box-shadow: inset 3px 3px 6px rgba(150, 120, 85, 0.45), inset -3px -3px 6px rgba(255, 255, 255, 0.95);
+  color: var(--cognac-accent);
 }
 
 .pdf-tb-divider {
   width: 1px;
   height: 16px;
-  background: rgba(30, 19, 12, 0.2);
+  background: rgba(150, 120, 85, 0.3);
   margin: 0 4px;
 }
 
+/* Zone d'affichage de la page PDF (Intérieur sombre reposant pour la lecture) */
 .pdf-canvas-container {
   flex: 1;
   width: 100%;
@@ -914,17 +983,40 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  padding: 24px;
-  background: #323639; /* Fond neutre sombre style Adobe Acrobat */
+  gap: 24px;
+  padding: 30px;
+  background: #25201b; /* Intérieur sombre chaleureux pour optimiser le confort de lecture des pages blanches */
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
 
+/* Scrollbar neumorphique stable et élégante */
+.pdf-canvas-container::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.pdf-canvas-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.pdf-canvas-container::-webkit-scrollbar-thumb {
+  background: rgba(139, 90, 43, 0.55);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.pdf-canvas-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 90, 43, 0.85);
+}
+
 .pdf-page-wrapper {
   position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
-  border-radius: 4px;
+  flex-shrink: 0 !important; /* CORRECTION SCROLLBAR : empêche Flexbox de comprimer les pages lors du défilement */
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.65);
+  border-radius: 8px;
   background: #ffffff;
   margin: 0 auto;
   transition: transform 0.2s ease;
@@ -934,7 +1026,7 @@ footer {
   display: block;
   max-width: 100%;
   height: auto;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .pdf-loading-spinner {
@@ -942,10 +1034,10 @@ footer {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  color: #ffffff;
+  color: var(--cream-light);
   font-family: var(--font-body);
   font-size: 1.1rem;
-  font-weight: 500;
+  font-weight: 600;
   padding: 60px 0;
 }
 
@@ -994,19 +1086,25 @@ footer {
   font-family: var(--font-body);
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--cream-light);
-  background: var(--espresso-dark);
+  color: var(--chocolate-dark);
+  background: var(--bg-card);
   padding: 12px 24px;
-  border-radius: 8px 8px 8px 0px;
+  border-radius: 50px;
   text-decoration: none !important;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  box-shadow: 0 6px 20px rgba(30, 19, 12, 0.2);
+  box-shadow: var(--shadow-convex-sm);
   transition: all 0.2s ease;
 }
 
 .pdf-open-btn:hover {
-  background: var(--cognac-accent);
+  color: var(--espresso-dark);
   transform: translateY(-2px);
+  box-shadow: -6px -6px 14px rgba(255, 255, 255, 0.95), 6px 6px 16px rgba(160, 130, 95, 0.35);
+}
+
+.pdf-open-btn:active {
+  transform: translateY(2px) scale(0.96) !important;
+  box-shadow: var(--shadow-concave-active) !important;
 }
