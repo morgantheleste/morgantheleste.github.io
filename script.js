@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // petit élément (chips de contact, badge de statut, footer...) donne l'impression
   // d'un site généré automatiquement plutôt qu'un choix de mise en scène délibéré.
   const scrollTargets = document.querySelectorAll('.content-block, .ref-card-sharp, .carousel-wrapper');
-  
+
   // Masquer initialement les éléments pour l'effet de défilement
   scrollTargets.forEach(el => {
     el.style.opacity = '0';
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Révélation ultra-fluide de l'élément lors du scroll
         entry.target.style.opacity = '1';
         entry.target.style.transform = 'translate3d(0, 0, 0)';
-        
+
         // Animation en cascade (stagger) des puces ou tags internes
         const innerTags = entry.target.querySelectorAll('.tag-item, .tag-sharp, ul.sharp-list li');
         if (innerTags.length > 0 && typeof gsap !== 'undefined') {
@@ -286,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadAndRenderPdf(pdfUrl) {
       if (!pdfCanvasContainer) return;
       pdfCanvasContainer.innerHTML = '<div class="pdf-loading-spinner"><i class="fas fa-spinner fa-spin"></i> Chargement du rapport PDF...</div>';
-      
+
       currentActivePage = 1;
       renderedPages.clear();
       if (pdfPageInputEl) {
@@ -577,7 +577,7 @@ document.addEventListener('DOMContentLoaded', () => {
       contact_location: "Toulon, 83200",
       contact_license: "Permis B",
       profile_title: "Profil & Objectif",
-      profile_desc: "Élève-ingénieur en Sciences des Données et Systèmes d'Information au sein de SeaTech (membre du groupe INP), je suis rigoureux, curieux et animé par un fort esprit d'équipe. Fort d'un intérêt marqué pour le Machine/Deep Learning et les architectures Cloud Data, je recherche un stage de 6 mois à partir de Mars 2027. Mon ambition est de mettre mes compétences en développement, analyse et optimisation directement au profit de vos projets d'ingénierie.",
+      profile_desc: "Élève-ingénieur en Sciences des Données et Systèmes d'Information au sein de SeaTech (membre du groupe INP), je suis rigoureux, curieux et animé par un fort esprit d'équipe. Doté d'un intérêt marqué pour le Machine/Deep Learning et les architectures Cloud Data, je recherche un stage de 6 mois à partir de Mars 2027. Mon ambition est de mettre mes compétences en développement, analyse et optimisation directement au profit de vos projets d'ingénierie.",
       explore_rubrics: "Explorez mes rubriques",
       card1_title: "01. Expérience Pro",
       card1_desc: "Stage KMUTT à Bangkok (Streamlit, cluster SLURM, GPU L40), bureau d'études IMET-BETP et Mairie de La Valette-du-Var.",
@@ -679,7 +679,7 @@ document.addEventListener('DOMContentLoaded', () => {
       skills_sec2_li3: "<strong>Outils Bureautiques :</strong> Pack Office (Word, PowerPoint, Excel utilisation avancée).",
       skills_sec3_title: "Langues",
       skills_sec3_li1: "<strong>Français :</strong> Langue maternelle.",
-      skills_sec3_li2: "<strong>Anglais :</strong> Niveau Avancé (C1) — Certification TOEIC : 900 (Aisance professionnelle à l'écrit et à l'oral).",
+      skills_sec3_li2: "<strong>Anglais :</strong> Niveau Avancé (C1) Certification TOEIC : 900 (Aisance professionnelle à l'écrit et à l'oral).",
       skills_sec4_title: "Savoir-être Professionnel",
       skills_soft_tag1: "Esprit d'équipe & Adaptabilité",
       skills_soft_tag2: "Sens de l'organisation & Fiabilité",
@@ -697,7 +697,7 @@ document.addEventListener('DOMContentLoaded', () => {
       eng1_li3: "<strong>Gestion budgétaire & Leadership :</strong> Élaboration et suivi des budgets événementiels (+ de 20 000 euros de budget), négociation de partenariats et prise de décision stratégique.",
       eng1_li4: "<strong>Développement de compétences :</strong> Renforcement du leadership, de la gestion du stress, de la communication et de la résolution de problèmes en équipe.",
       eng2_title: "Skateboard",
-      eng2_desc: "Skateur depuis mes 15 ans — une pratique qui a forgé ma persévérance et ma créativité, portée par un attachement profond à la culture skate et à la street culture au sens large.",
+      eng2_desc: "Skateur depuis mes 15 ans. Une pratique qui a forgé ma persévérance et ma créativité, portée par un attachement profond à la culture skate et à la street culture au sens large.",
 
       // references.html
       ref_page_title: "Références Académiques & Contact",
@@ -835,7 +835,7 @@ document.addEventListener('DOMContentLoaded', () => {
       skills_sec2_li3: "<strong>Office Tools:</strong> Office Suite (Word, PowerPoint, advanced Excel usage).",
       skills_sec3_title: "Languages",
       skills_sec3_li1: "<strong>French:</strong> Native language.",
-      skills_sec3_li2: "<strong>English:</strong> Advanced level (C1) — TOEIC Certification: 900 (Professional fluency in speaking and writing).",
+      skills_sec3_li2: "<strong>English:</strong> Advanced level (C1) TOEIC Certification: 900 (Professional fluency in speaking and writing).",
       skills_sec4_title: "Soft Skills & Professional Attributes",
       skills_soft_tag1: "Team Spirit & Adaptability",
       skills_soft_tag2: "Organizational Skills & Reliability",
@@ -853,7 +853,7 @@ document.addEventListener('DOMContentLoaded', () => {
       eng1_li3: "<strong>Budget Management & Leadership:</strong> Preparation and monitoring of event budgets (€20,000+ budget), partnership negotiations, and strategic decision-making.",
       eng1_li4: "<strong>Skills Development:</strong> Strengthening leadership, stress management, communication, and team problem-solving.",
       eng2_title: "Skateboarding",
-      eng2_desc: "Skateboarder since age 15 — a practice that shaped my perseverance and creativity, driven by a deep attachment to skate culture and street culture as a whole.",
+      eng2_desc: "Skateboarder since age 15. A practice that shaped my perseverance and creativity, driven by a deep attachment to skate culture and street culture as a whole.",
 
       // references.html
       ref_page_title: "Academic References & Contact",
