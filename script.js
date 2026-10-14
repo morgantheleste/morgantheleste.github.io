@@ -572,12 +572,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // index.html
       header_title_home: "Morgan Theleste",
-      header_subtitle_home: "Élève-ingénieur en 3ème année • Département IRIS @ SeaTech",
+      header_subtitle_home: "Data Science & Machine Learning • Élève-ingénieur en dernière année @ SeaTech <strong>INP</strong>",
       status_box: "<i class=\"fas fa-search\"></i> Recherche d'un stage de 6 mois à partir de Mars 2027",
       contact_location: "Toulon, 83200",
       contact_license: "Permis B",
       profile_title: "Profil & Objectif",
-      profile_desc: "Élève-ingénieur en Sciences des Données et Systèmes d'Information au sein de SeaTech (membre du groupe INP), je suis rigoureux, curieux et animé par un fort esprit d'équipe. Doté d'un intérêt marqué pour le Machine/Deep Learning et les architectures Cloud Data, je recherche un stage de 6 mois à partir de Mars 2027. Mon ambition est de mettre mes compétences en développement, analyse et optimisation directement au profit de vos projets d'ingénierie.",
+      profile_desc: "Élève-ingénieur en Sciences des Données et Systèmes d'Information au sein de SeaTech (membre du groupe INP), je suis rigoureux, curieux et animé par un fort esprit d'équipe. Doté d'un intérêt marqué pour le <strong>Machine/Deep Learning</strong> et les architectures <strong>Cloud Data</strong>, je recherche un stage de 6 mois à partir de Mars 2027. Mon ambition est de mettre mes compétences en développement, analyse et optimisation directement au profit de vos projets d'ingénierie.",
       explore_rubrics: "Explorez mes rubriques",
       card1_title: "01. Expérience Pro",
       card1_desc: "Stage KMUTT à Bangkok (Streamlit, cluster SLURM, GPU L40), bureau d'études IMET-BETP et Mairie de La Valette-du-Var.",
@@ -596,7 +596,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // experience.html
       exp_header_title: "Expérience Professionnelle",
       exp_header_subtitle: "Parcours technique en ingénierie logicielle, data science et travaux publics",
-      exp1_date: "Mai – Août 2025 • Bangkok, Thaïlande",
+      exp1_date: "Mai – Août 2026 • Bangkok, Thaïlande",
       exp1_title: "Stagiaire en Ingénierie Logicielle et Data Science",
       exp1_subtitle: "KMUTT (King Mongkut's University of Technology Thonburi) – Laboratoire CERSL",
       exp1_desc: "Au sein du laboratoire CERSL de l'université KMUTT à Bangkok, j'ai travaillé à rendre des modèles complexes d'Intelligence Artificielle de traitement d'images accessibles aux chercheurs et utilisateurs :",
@@ -622,7 +622,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // projets.html
       proj_header_title: "Projets Tech & Recherche",
       proj_header_subtitle: "Développements logiciels, modélisation et projets d'expérimentation scientifique",
-      proj2_date: "Mai – Août 2025",
+      proj2_date: "Mai – Août 2026",
       proj2_title: "Sandbox web pour modèles de deep learning en télédétection",
       proj2_subtitle: "Stage de recherche — CERSL, KMUTT (Bangkok, Thaïlande)",
       proj2_desc: "Conception et déploiement d'une plateforme web interactive rendant accessibles, sans expertise en calcul haute performance, des modèles de deep learning dédiés à la restauration d'images de télédétection :",
@@ -630,7 +630,7 @@ document.addEventListener('DOMContentLoaded', () => {
       proj2_li2: "<strong>Intégration de deux modèles de deep learning :</strong> HAUNet (super-résolution x4) et DA-Net (débrumisation), connectés au cluster HPC SLURM de l'université pour l'inférence sur GPU NVIDIA L40.",
       proj2_li3: "<strong>Optimisation mémoire et post-traitement :</strong> algorithme de découpage en tuiles (96x96 px) pour éviter les erreurs de saturation mémoire GPU, filtre bilatéral pour corriger les artefacts visuels résiduels.",
       proj_click_pdf: "<i class=\"fas fa-file-pdf\"></i> Cliquer pour consulter le rapport PDF <i class=\"fas fa-arrow-right\"></i>",
-      proj3_date: "septembre 2025 – juin 2026",
+      proj3_date: "Septembre 2025 – Juin 2026",
       proj3_title: "PhishML — Détection de phishing par machine learning",
       proj3_subtitle: "Projet de machine learning appliqué à la cybersécurité",
       proj3_desc: "Conception d'un pipeline complet de détection de sites de phishing, sur un dataset équilibré de près de 18 000 URLs enrichi de caractéristiques forensiques :",
@@ -689,7 +689,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // engagement.html
       eng_header_title: "Engagement Associatif & Passions",
       eng_header_subtitle: "Responsabilités associatives, centres d'intérêt et projets personnels",
-      eng1_date: "02/2025 – Aujourd'hui • Toulon, France",
+      eng1_date: "02/2025 – 02/2026 • Toulon, France",
       eng1_title: "Président — SeaTech Sports Association (Bureau des Sports)",
       eng1_desc: "Direction de l'association sportive de l'école d'ingénieurs SeaTech :",
       eng1_li1: "<strong>Organisation d'événements :</strong> Planification et mise en œuvre de tournois sportifs, compétitions et rassemblements étudiants (plus de 400 étudiants) tout au long de l'année universitaire.",
@@ -706,11 +706,33 @@ document.addEventListener('DOMContentLoaded', () => {
       ref_section_desc: "Vous pouvez contacter directement mes référents académiques pour toute demande d'appréciation sur mes travaux :",
       ref_1_role: "Enseignant-Chercheur",
       ref_1_lab: "LSIS - Laboratory of Information and Systems Sciences / Université de Toulon",
-      ref_2_role: "Head of Computer Engineering Department",
-      ref_2_lab: "Computer Engineering Department, Laboratoire CERSL (KMUTT Bangkok)",
+      ref_2_role: "Directeur du Département Génie Informatique",
+      ref_2_lab: "Département Génie Informatique, Laboratoire CERSL (KMUTT Bangkok)",
       contact_section_title: "Me Contacter Directement",
       contact_section_desc: "Disponible pour un stage de 6 mois à partir de <strong>Mars 2027</strong> en Data Science, Ingénierie Logicielle ou Systèmes d'Information :",
-      contact_license: "Permis B"
+      contact_license: "Permis B",
+
+      // Tag translations
+      btn_cv: "Télécharger mon CV",
+      exp2_tag2: "Excel (Avancé)",
+      exp2_tag3: "VRD",
+      exp2_tag4: "Génie Civil",
+      exp2_tag5: "Plans Techniques",
+      proj3_tag4: "Explicabilité SHAP",
+      proj3_tag5: "Cybersécurité forensique",
+      proj1_tag4: "Logique Métier",
+      proj1_tag5: "Algorithmique",
+      proj4_tag1: "Physique Expérimentale",
+      proj4_tag2: "Haute Tension",
+      proj4_tag3: "Électrostatique",
+      proj4_tag4: "Analyse de données",
+      proj4_tag5: "Rédaction Scientifique",
+      edu1_tag1: "Master Ingénieur",
+      edu1_tag2: "Département IRIS",
+      edu1_tag4: "Systèmes d'Information",
+      edu2_tag1: "Licence SPI",
+      edu2_tag2: "Mathématiques Appliquées",
+      edu2_tag4: "Projet de Recherche 2 Ans"
     },
 
     en: {
@@ -728,12 +750,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // index.html
       header_title_home: "Morgan Theleste",
-      header_subtitle_home: "3rd Year Engineering Student • IRIS Department @ SeaTech",
+      header_subtitle_home: "Data Science & Machine Learning • Final Year Engineering Student @ SeaTech <strong>INP</strong>",
       status_box: "<i class=\"fas fa-search\"></i> Seeking a 6-month internship starting March 2027",
       contact_location: "Toulon, France",
       contact_license: "Driver's License (Class B)",
       profile_title: "Profile & Objective",
-      profile_desc: "As a Data Science and Information Systems engineering student at SeaTech (member of INP group), I am rigorous, curious, and driven by strong teamwork skills. With a keen interest in Machine/Deep Learning and Cloud Data architectures, I am looking for a 6-month internship starting March 2027. My goal is to apply my software development, data analysis, and optimization skills directly to your engineering projects.",
+      profile_desc: "As a Data Science and Information Systems engineering student at SeaTech (member of INP group), I am rigorous, curious, and driven by strong teamwork skills. With a keen interest in <strong>Machine/Deep Learning</strong> and <strong>Cloud Data</strong> architectures, I am looking for a 6-month internship starting March 2027. My goal is to apply my software development, data analysis, and optimization skills directly to your engineering projects.",
       explore_rubrics: "Explore my sections",
       card1_title: "01. Work Experience",
       card1_desc: "KMUTT research internship in Bangkok (Streamlit, SLURM cluster, L40 GPU), IMET-BETP design office, and La Valette-du-Var City Council.",
@@ -752,7 +774,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // experience.html
       exp_header_title: "Professional Experience",
       exp_header_subtitle: "Technical trajectory in software engineering, data science, and civil infrastructure",
-      exp1_date: "May – August 2025 • Bangkok, Thailand",
+      exp1_date: "May – August 2026 • Bangkok, Thailand",
       exp1_title: "Software Engineering & Data Science Intern",
       exp1_subtitle: "KMUTT (King Mongkut's University of Technology Thonburi) – CERSL Laboratory",
       exp1_desc: "At the CERSL laboratory at KMUTT University in Bangkok, I worked on making complex image processing AI models accessible to researchers and users:",
@@ -778,7 +800,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // projets.html
       proj_header_title: "Tech Projects & Research",
       proj_header_subtitle: "Software engineering, modeling, and scientific experimentation projects",
-      proj2_date: "May – August 2025",
+      proj2_date: "May – August 2026",
       proj2_title: "Web Sandbox for Remote Sensing Deep Learning Models",
       proj2_subtitle: "Research Internship — CERSL, KMUTT (Bangkok, Thailand)",
       proj2_desc: "Design and deployment of an interactive web platform making deep learning models for remote sensing image restoration accessible without HPC expertise:",
@@ -845,7 +867,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // engagement.html
       eng_header_title: "Associative Engagement & Hobbies",
       eng_header_subtitle: "Associative responsibilities, interests, and personal pursuits",
-      eng1_date: "02/2025 – Present • Toulon, France",
+      eng1_date: "02/2025 – 02/2026 • Toulon, France",
       eng1_title: "President — SeaTech Sports Association (BDS)",
       eng1_desc: "Leadership of the sports association at SeaTech Engineering School:",
       eng1_li1: "<strong>Event Organization:</strong> Planning and execution of sports tournaments, competitions, and student gatherings (400+ students) throughout the academic year.",
@@ -866,7 +888,29 @@ document.addEventListener('DOMContentLoaded', () => {
       ref_2_lab: "Computer Engineering Department, CERSL Laboratory (KMUTT Bangkok)",
       contact_section_title: "Contact Me Directly",
       contact_section_desc: "Available for a 6-month internship starting <strong>March 2027</strong> in Data Science, Software Engineering, or Information Systems:",
-      contact_license: "Driver's License (Class B)"
+      contact_license: "Driver's License (Class B)",
+
+      // Tag translations
+      btn_cv: "Download my CV",
+      exp2_tag2: "Excel (Advanced)",
+      exp2_tag3: "Roads & Utility Networks",
+      exp2_tag4: "Civil Engineering",
+      exp2_tag5: "Technical Drawings",
+      proj3_tag4: "SHAP Explainability",
+      proj3_tag5: "Forensic Cybersecurity",
+      proj1_tag4: "Business Logic",
+      proj1_tag5: "Algorithmics",
+      proj4_tag1: "Experimental Physics",
+      proj4_tag2: "High Voltage",
+      proj4_tag3: "Electrostatics",
+      proj4_tag4: "Data Analysis",
+      proj4_tag5: "Scientific Writing",
+      edu1_tag1: "Engineering Master's",
+      edu1_tag2: "IRIS Department",
+      edu1_tag4: "Information Systems",
+      edu2_tag1: "Bachelor's SPI",
+      edu2_tag2: "Applied Mathematics",
+      edu2_tag4: "2-Year Research Project"
     }
   };
 

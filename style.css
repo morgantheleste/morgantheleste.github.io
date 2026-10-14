@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Nunito+Sans:ital,opsz,wght@0,6..12,400..800;1,6..12,400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400..800;1,6..12,400..800&display=swap');
 
 :root {
   --espresso-dark: #1e130c;   /* Marron foncé espresso */
@@ -16,9 +16,9 @@
   --convex-light: rgba(255, 255, 255, 0.85);                 /* Lumière blanche/ivoire en haut à gauche */
   --convex-dark: rgba(150, 120, 85, 0.45);                   /* Ombre caramel/espresso en bas à droite */
 
-  --shadow-convex: -8px -8px 20px var(--convex-light), 8px 8px 22px var(--convex-dark);
-  --shadow-convex-sm: -4px -4px 10px var(--convex-light), 4px 4px 12px var(--convex-dark);
-  --shadow-convex-hover: -10px -10px 24px rgba(255, 255, 255, 0.95), 10px 10px 26px rgba(150, 120, 85, 0.50);
+  --shadow-convex: -4px -4px 12px var(--convex-light), 4px 4px 14px var(--convex-dark);
+  --shadow-convex-sm: -3px -3px 8px var(--convex-light), 3px 3px 10px var(--convex-dark);
+  --shadow-convex-hover: -5px -5px 14px rgba(255, 255, 255, 0.9), 5px 5px 16px rgba(150, 120, 85, 0.40);
   --shadow-concave-active: inset 4px 4px 10px rgba(150, 120, 85, 0.40), inset -4px -4px 10px rgba(255, 255, 255, 0.85);
 
   --font-heading: 'Nunito Sans', sans-serif;   /* Police unifiée Nunito Sans pour titres */
@@ -297,7 +297,7 @@ a.contact-item:active {
 /* CARTES CLASSIQUES */
 .content-section {
   width: 100%;
-  margin-bottom: 38px !important;
+  margin-bottom: 28px !important;
 }
 
 .content-block {
@@ -306,9 +306,9 @@ a.contact-item:active {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   border: none !important;
-  border-radius: 50px;
-  padding: 42px 46px;
-  margin-bottom: 60px !important; /* Espacement aéré de 36px pour isoler complètement les ombres 3D */
+  border-radius: 18px;
+  padding: 32px 36px;
+  margin-bottom: 32px !important;
   box-shadow: var(--shadow-convex) !important;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
@@ -382,8 +382,8 @@ ul.sharp-list li {
   overflow: hidden !important;
   padding: 0 !important;
   margin: 0 !important;
-  border-radius: 50px !important;
-  clip-path: inset(0 round 20px 20px 20px 0px);
+  border-radius: 18px !important;
+  clip-path: inset(0 round 18px);
 }
 
 .carousel-track {
@@ -416,14 +416,14 @@ ul.sharp-list li {
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
   border: none !important;
-  border-radius: 50px !important;
-  padding: 42px !important;
+  border-radius: 18px !important;
+  padding: 32px !important;
   margin: 0 !important;
   text-decoration: none !important;
   color: var(--espresso-dark) !important;
   box-shadow: var(--shadow-convex) !important;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background 0.25s ease !important;
-  min-height: 280px;
+  min-height: 200px;
   cursor: pointer !important;
 }
 
@@ -632,7 +632,7 @@ ul.sharp-list li {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: none !important;
-  border-radius: 50px !important; /* BULLE: BAS-GAUCHE SHARP 0PX, 12PX SUR AUTRES COINS */
+  border-radius: 18px !important;
   padding: 28px;
   box-shadow: var(--shadow-convex);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background 0.25s ease;
@@ -686,7 +686,7 @@ footer {
   .site-wrapper { padding: 16px 3vw; }
   .nav-container { padding: 12px 3vw; flex-direction: column; align-items: flex-start; }
   .page-title { font-size: 2.4rem; }
-  .content-block, .section-card { padding: 25px !important; border-radius: 50px !important; }
+  .content-block, .section-card { padding: 25px !important; border-radius: 14px !important; }
   .carousel-controls { flex-direction: column-reverse; gap: 16px; align-items: center; }
   .pdf-modal-container { width: 95vw; height: 90vh; }
   .pdf-modal-header { padding-left: 60px; }
@@ -766,7 +766,7 @@ footer {
   height: 88vh;
   background: var(--bg-card);
   border: none !important;
-  border-radius: 40px;
+  border-radius: 20px;
   box-shadow: 0 25px 65px rgba(20, 12, 6, 0.45);
   display: flex;
   flex-direction: column;
@@ -878,7 +878,7 @@ footer {
 .card-image-container {
   width: 100%;
   margin: 16px 0;
-  border-radius: 50px;
+  border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(30, 19, 12, 0.08);
   border: 1px solid rgba(30, 19, 12, 0.1);
