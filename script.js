@@ -285,7 +285,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function loadAndRenderPdf(pdfUrl) {
       if (!pdfCanvasContainer) return;
-      pdfCanvasContainer.innerHTML = '<div class="pdf-loading-spinner"><i class="fas fa-spinner fa-spin"></i> Chargement du rapport PDF...</div>';
+      const loadingText = (localStorage.getItem('user_lang') || 'en') === 'fr' ? 'Chargement du rapport PDF...' : 'Loading PDF report...';
+      pdfCanvasContainer.innerHTML = '<div class="pdf-loading-spinner"><i class="fas fa-spinner fa-spin"></i> ' + loadingText + '</div>';
 
       currentActivePage = 1;
       renderedPages.clear();
@@ -512,7 +513,8 @@ document.addEventListener('DOMContentLoaded', () => {
         e.stopPropagation();
 
         const pdfSrc = badge.getAttribute('data-pdf');
-        const cardTitle = badge.getAttribute('data-title') || badge.closest('.content-block')?.querySelector('.block-title')?.textContent || 'Rapport PDF';
+        const currentLang = localStorage.getItem('user_lang') || 'en';
+        const cardTitle = (currentLang === 'en' && badge.getAttribute('data-title-en')) ? badge.getAttribute('data-title-en') : (badge.getAttribute('data-title') || badge.closest('.content-block')?.querySelector('.block-title')?.textContent || 'PDF Report');
 
         if (pdfSrc) {
           if (pdfModalTitle) pdfModalTitle.textContent = cardTitle;
@@ -698,6 +700,7 @@ document.addEventListener('DOMContentLoaded', () => {
       eng1_li4: "<strong>Développement de compétences :</strong> Renforcement du leadership, de la gestion du stress, de la communication et de la résolution de problèmes en équipe.",
       eng2_title: "Skateboard",
       eng2_desc: "Skateur depuis mes 15 ans. Une pratique qui a forgé ma persévérance et ma créativité, portée par un attachement profond à la culture skate et à la street culture au sens large.",
+      eng2_quote: "« Dans le skate, chaque chute est une donnée pour réussir le trick. »",
 
       // references.html
       ref_page_title: "Références Académiques & Contact",
@@ -876,6 +879,7 @@ document.addEventListener('DOMContentLoaded', () => {
       eng1_li4: "<strong>Skills Development:</strong> Strengthening leadership, stress management, communication, and team problem-solving.",
       eng2_title: "Skateboarding",
       eng2_desc: "Skateboarder since age 15. A practice that shaped my perseverance and creativity, driven by a deep attachment to skate culture and street culture as a whole.",
+      eng2_quote: "\"In skating, every fall is a data point for landing the trick.\"",
 
       // references.html
       ref_page_title: "Academic References & Contact",
@@ -939,13 +943,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Initialisation de la langue au chargement de la page
-  const savedLang = localStorage.getItem('user_lang') || 'fr';
+  const savedLang = localStorage.getItem('user_lang') || 'en';
   setLanguage(savedLang);
 
   // Événement clic sur le bouton de langue
   if (langToggleBtn) {
     langToggleBtn.addEventListener('click', () => {
-      const currentLang = localStorage.getItem('user_lang') || 'fr';
+      const currentLang = localStorage.getItem('user_lang') || 'en';
       const newLang = currentLang === 'fr' ? 'en' : 'fr';
       setLanguage(newLang);
     });
